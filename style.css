@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  line-height: 1.15;
+  background-color: var(--background-site);
+  font-size: 62.5%;
+  font-family: Inter, 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+body {
+  --slide-spacing: 10px;
+  --slide-size: 120px;
+  padding: 0 10px;
+}
+
+.embla {
+  max-width: 800px;
+  margin: 0px auto;
+  border: 5px solid rgba(0, 0, 0, .1);
+  padding: 30px 0;
+  border-radius: 20px;
+}
+
+.drag {
+  max-width: 800px;
+  height: 190px;
+  border: 5px solid rgba(0, 0, 0, .1);
+  display: flex;
+  align-items: center;
+  padding: var(--slide-spacing);
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 20px;
+  background: #ececfc;
+  overflow: hidden;
+  position: relative;
+  overflow-x: auto;
+  user-select: none;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  text-align: center;
+  line-height: 1;
+  user-select: none;
+  cursor: grab;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.embla__slide img {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.drag label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .2);
+  letter-spacing: .2em;
+  font-size: 12px;
+}
+
+.delete {
+  position: absolute;
+  top: -2px;
+  right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, .2);
+  background: white;
+  cursor: pointer;
+  font-size: 8px;
+  line-height: 1;
+  pointer-events: all;
+  text-transform: uppercase;
+}
+
+.dragging {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  opacity: .7;
+}
+
+.dragged {
+  position: relative;
+  left: 0!important;
+  top: 0!important;
+  transform: none!important;
+  opacity: 1;
+}
